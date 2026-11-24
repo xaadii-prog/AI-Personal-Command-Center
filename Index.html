@@ -1,0 +1,4122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Command Center</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         APP
+    ========================== -->
+    <div class="app">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+        <aside class="sidebar">
+
+            <!-- Logo -->
+            <div class="brand">
+                <div class="brand-icon">⚡</div>
+
+                <div class="brand-text">
+                    <h2>Command</h2>
+                    <span>Center</span>
+                </div>
+            </div>
+
+
+            <!-- Navigation -->
+            <nav class="navigation">
+
+                <p class="nav-label">MAIN</p>
+
+                <a href="#" class="nav-item active" data-page="dashboard">
+                    <span class="nav-icon">⌂</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="tasks">
+                    <span class="nav-icon">✓</span>
+                    <span>Tasks</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="notes">
+                    <span class="nav-icon">▤</span>
+                    <span>Notes</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="planner">
+                    <span class="nav-icon">▣</span>
+                    <span>Planner</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="goals">
+                    <span class="nav-icon">◆</span>
+                    <span>Goals</span>
+                </a>
+                    <a href="#" class="nav-item" data-page="ai">
+                    <span class="nav-icon">✦</span>
+                    <span>AI Command Center</span>
+                </a>
+
+                <p class="nav-label">MANAGE</p>
+
+                <a href="#" class="nav-item" data-page="finance">
+                    <span class="nav-icon">◈</span>
+                    <span>Finance</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="analytics">
+                    <span class="nav-icon">◒</span>
+                    <span>Analytics</span>
+                </a>
+
+            </nav>
+
+
+            <!-- Sidebar Bottom -->
+            <div class="sidebar-bottom">
+
+                <a href="#" class="nav-item" data-page="settings">
+                    <span class="nav-icon">⚙</span>
+                    <span>Settings</span>
+                </a>
+
+                <div class="profile-mini">
+
+                    <div class="profile-avatar">
+                        M
+                    </div>
+
+                    <div class="profile-info">
+                        <strong>Malik</strong>
+                        <span>Personal Space</span>
+                    </div>
+
+                    <button class="profile-more">•••</button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN AREA
+        ========================== -->
+        <main class="main-content">
+
+            <!-- =========================
+                 TOPBAR
+            ========================== -->
+            <header class="topbar">
+
+                <button class="mobile-menu" id="mobileMenu">
+                    ☰
+                </button>
+
+                <!-- Search -->
+                <div class="search-box">
+
+                    <span class="search-icon">⌕</span>
+
+                    <input
+                        type="text"
+                        id="globalSearch"
+                        placeholder="Search anything..."
+                    >
+                    <div class="global-search-results" id="globalSearchResults"></div>
+
+                    <span class="search-shortcut">
+                        Ctrl K
+                    </span>
+
+                </div>
+
+
+                <!-- Topbar Actions -->
+                <div class="topbar-actions">
+
+                    <button
+                        class="icon-button"
+                        id="themeToggle"
+                        title="Toggle theme"
+                    >
+                        ☾
+                    </button>
+
+                   <button
+                        class="icon-button notification-button"
+                        id="notificationToggle"
+                        title="Notifications"
+                    >
+                        ♧
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="top-avatar">
+                        M
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 PAGE CONTENT
+            ========================== -->
+            <section class="page-content">
+
+                <!-- Greeting -->
+                <div class="welcome-section">
+
+                    <div>
+                        <p class="eyebrow">
+                            MONDAY, SEPTEMBER 21
+                        </p>
+
+                        <h1>
+                            Good evening, Malik
+                            <span>👋</span>
+                        </h1>
+
+                        <p class="welcome-text">
+                            Let's make today productive.
+                        </p>
+                    </div>
+
+                    <button class="primary-button" id="quickAddBtn">
+                        <span>＋</span>
+                        Quick Add
+                    </button>
+
+                </div>
+
+
+                <!-- =========================
+                     STAT CARDS
+                ========================== -->
+                <div class="stats-grid">
+
+                    <!-- Tasks -->
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <div class="stat-icon purple">
+                                ✓
+                            </div>
+
+                            <span class="stat-trend positive">
+                                +12%
+                            </span>
+                        </div>
+
+                        <p class="stat-label">
+                            Total Tasks
+                        </p>
+
+                        <h2 class="stat-value" id="totalTasksCount">0</h2>
+                        <p class="stat-description" id="completedTasksCount">
+                            0 completed
+                        </p>
+
+                    </div>
+                    <!-- Notes -->
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon blue">
+                                ▤
+                            </div>
+
+                            <span class="stat-trend">
+                                Live
+                            </span>
+
+                        </div>
+
+                        <p class="stat-label">
+                            Total Notes
+                        </p>
+
+                        <h2 class="stat-value" id="totalNotesCount">
+                            0
+                        </h2>
+
+                        <p class="stat-description" id="notesDescription">
+                            0 notes saved
+                        </p>
+
+                    </div>
+
+
+                    <!-- Focus -->
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <div class="stat-icon blue">
+                                ◉
+                            </div>
+
+                            <span class="stat-trend positive">
+                                +8%
+                            </span>
+                        </div>
+
+                        <p class="stat-label">
+                            Focus Score
+                        </p>
+
+                        <h2 class="stat-value">
+                            82%
+                        </h2>
+
+                        <p class="stat-description">
+                            Better than yesterday
+                        </p>
+
+                    </div>
+
+
+                    <!-- Goals -->
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <div class="stat-icon orange">
+                                ◆
+                            </div>
+
+                            <span class="stat-trend">
+                                2 active
+                            </span>
+                        </div>
+
+                        <p class="stat-label">
+                            Active Goals
+                        </p>
+
+                        <h2 class="stat-value">
+                            4
+                        </h2>
+
+                        <p class="stat-description">
+                            2 goals near completion
+                        </p>
+
+                    </div>
+
+
+                    <!-- Balance -->
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <div class="stat-icon green">
+                                $
+                            </div>
+
+                            <span class="stat-trend positive">
+                                +5.4%
+                            </span>
+                        </div>
+
+                        <p class="stat-label">
+                            Monthly Balance
+                        </p>
+
+                        <h2 class="stat-value">
+                            $2,480
+                        </h2>
+
+                        <p class="stat-description">
+                            $620 spent this month
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     DASHBOARD GRID
+                ========================== -->
+                <div class="dashboard-grid">
+
+
+                    
+                    <!-- =========================
+                        PREMIUM TODAY'S ACTIVITY
+                    ========================== -->
+                    <div class="dashboard-card activity-card premium-activity-card">
+
+                        <div class="card-header activity-card-header">
+                            <div class="activity-heading">
+                                <div class="activity-title-row">
+                                    <span class="activity-title-icon">✦</span>
+                                    <h3>Today's Activity</h3>
+                                </div>
+                                <p>Your daily progress at a glance</p>
+                            </div>
+
+                            <div class="activity-header-actions">
+                                <span class="activity-live-badge">
+                                    <span class="activity-live-dot"></span>
+                                    LIVE
+                                </span>
+
+                                <button
+                                    class="more-button"
+                                    id="activityMoreButton"
+                                    type="button"
+                                    aria-label="Activity options"
+                                >•••</button>
+                                
+                                <div class="activity-options-menu" id="activityOptionsMenu" hidden>
+                                    <button type="button" data-activity-action="refresh">
+                                        <span>↻</span> Refresh Activity
+                                    </button>
+                                    <button type="button" data-activity-action="history">
+                                        <span>◷</span> View All Activity
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-card-divider"></div>
+
+                        <!-- Tasks, Notes, Planner, Goals and Finance activity -->
+                        <div
+                            class="activity-list"
+                            id="dashboardActivityList"
+                            aria-live="polite"
+                        ></div>
+                    </div>
+
+                    <!-- =========================
+                        PRODUCTIVITY
+                    ========================== -->
+                    <div class="dashboard-card productivity-card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h3>Productivity</h3>
+                                <p>This week</p>
+                            </div>
+
+                            <select id="chartPeriod">
+                                <option>This week</option>
+                                <option>This month</option>
+                            </select>
+
+                        </div>
+
+
+                       <!-- REAL PRODUCTIVITY CHART -->
+
+                    <div
+                        class="chart"
+                        id="dashboardProductivityChart"
+                    >
+
+                        <div
+                            class="chart-bars"
+                            id="dashboardProductivityBars"
+                        ></div>
+
+                    </div>
+
+
+                    <div
+                        class="chart-labels"
+                        id="productivityChartLabels"
+                    ></div>
+
+
+                    </div>
+
+
+                    <!-- =========================
+                         QUICK COMMAND
+                    ========================== -->
+                    <div class="dashboard-card command-card">
+
+                        <div class="command-glow"></div>
+
+                        <div class="command-content">
+
+                            <div class="ai-badge">
+                                <span>✦</span>
+                                AI COMMAND
+                            </div>
+
+                            <h2>
+                                What can I help you with?
+                            </h2>
+
+                            <p>
+                                Tell your Command Center what you need.
+                            </p>
+
+                            <div class="command-input">
+
+                                <span>›</span>
+
+                                <input
+                                    type="text"
+                                    id="commandInput"
+                                    placeholder="Add a task, note, expense..."
+                                >
+
+                                <button id="commandButton">
+                                    ⚡
+                                </button>
+
+                            </div>
+
+                            <div class="command-suggestions">
+
+                                <button>
+                                    + Add task
+                                </button>
+
+                                <button>
+                                    + Create note
+                                </button>
+
+                                <button>
+                                    + Add expense
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         GOALS
+                    ========================== -->
+                    <div class="dashboard-card goals-card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h3>Goals</h3>
+                                <p>Keep moving forward</p>
+                            </div>
+
+                            <button class="more-button">
+                                •••
+                            </button>
+
+                        </div>
+
+
+                        <!-- Goal 1 -->
+                        <div class="goal-item">
+
+                            <div class="goal-info">
+                                <strong>Learn JavaScript</strong>
+                                <span>80%</span>
+                            </div>
+
+                            <div class="progress">
+                                <div
+                                    class="progress-fill purple-fill"
+                                    style="width: 80%;"
+                                ></div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Goal 2 -->
+                        <div class="goal-item">
+
+                            <div class="goal-info">
+                                <strong>Build Portfolio</strong>
+                                <span>65%</span>
+                            </div>
+
+                            <div class="progress">
+                                <div
+                                    class="progress-fill blue-fill"
+                                    style="width: 65%;"
+                                ></div>
+                            </div>
+            
+
+                        </div>
+
+
+                        <!-- Goal 3 -->
+                        <div class="goal-item">
+
+                            <div class="goal-info">
+                                <strong>Read 12 Books</strong>
+                                <span>40%</span>
+                            </div>
+
+                            <div class="progress">
+                                <div
+                                    class="progress-fill orange-fill"
+                                    style="width: 40%;"
+                                ></div>
+                            </div>
+
+                        </div>
+
+
+                        <button class="view-all">
+                            View all goals →
+                        </button>
+
+                    </div>
+
+                </div>
+                            <!-- TASKS PAGE -->
+
+            <section class="tasks-page page-hidden" id="tasksPage">
+
+                <div class="page-heading">
+
+                    <div>
+                        <p class="eyebrow">YOUR WORK</p>
+                        <h2>Tasks</h2>
+                        <p>Stay focused on what matters.</p>
+                    </div>
+
+                    <button class="primary-button" id="addTaskBtn">
+                        <span>＋</span>
+                        Add Task
+                    </button>
+
+                </div>
+
+                <div class="task-list" id="taskList">
+                    <!-- Tasks will appear here -->
+                </div>
+
+
+            </section>
+             <!-- =========================
+                    SETTINGS PAGE
+                ========================== -->
+                <section
+                    id="settingsPage"
+                    class="page-hidden"
+                >
+
+                    <div class="welcome-section">
+                        <div>
+                            <p class="eyebrow">SETTINGS</p>
+                            <h1>Settings</h1>
+                            <p class="welcome-text">
+                                Manage your Command Center preferences.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+
+                        <div class="dashboard-card">
+                            <h3>Appearance</h3>
+
+                            <p>
+                                Manage your theme and visual preferences.
+                            </p>
+
+                            <button
+                                class="secondary-button"
+                                id="settingsThemeToggle"
+                                type="button"
+                            >
+                                Toggle Theme
+                            </button>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3>Notifications</h3>
+
+                            <p>
+                                Manage notification preferences.
+                            </p>
+
+                            <button
+                                class="secondary-button"
+                                id="settingsNotificationToggle"
+                                type="button"
+                            >
+                                Notifications On
+                            </button>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3>Data</h3>
+
+                            <p>
+                                Manage your saved Command Center data.
+                            </p>
+
+                            <div class="settings-data-actions">
+                                <button class="secondary-button" id="exportDataBtn" type="button">
+                                    Export Data
+                                </button>
+
+                                <button class="secondary-button" id="importDataBtn" type="button">
+                                    Import Data
+                                </button>
+
+                                <button class="secondary-button" id="clearDataBtn" type="button">
+                                    Clear Data
+                                </button>
+
+                                <button class="secondary-button" id="resetCommandCenterBtn" type="button">
+                                    Reset Command Center
+                                </button>
+
+                                <input
+                                    type="file"
+                                    id="importDataInput"
+                                    accept=".json,application/json"
+                                    hidden
+                                >
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                        <h3>Keyboard Shortcuts</h3>
+
+                        <p>
+                            View and manage keyboard shortcuts.
+                        </p>
+
+                        <div class="settings-shortcuts-list">
+                            <div class="settings-shortcut-row">
+                                <span>Global Search</span>
+                                <kbd>Ctrl K</kbd>
+                            </div>
+
+                            <div class="settings-shortcut-row">
+                                <span>Close Modal</span>
+                                <kbd>Esc</kbd>
+                            </div>
+
+                            <div class="settings-shortcut-row">
+                                <span>Quick Command</span>
+                                <kbd>Ctrl Enter</kbd>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+
+                </section>
+
+            <!-- ==========================================
+            GOALS PAGE
+            ========================================== -->
+
+        <section
+            class="goals-page page-hidden"
+            id="goalsPage"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        LONG-TERM FOCUS
+                    </p>
+
+                    <h2>
+                        Goals
+                    </h2>
+
+                    <p>
+                        Turn your ambitions into measurable progress.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-button"
+                    id="addGoalBtn"
+                >
+                    <span>＋</span>
+                    Add Goal
+                </button>
+
+            </div>
+
+
+    <!-- GOALS OVERVIEW -->
+
+    <div class="goals-overview">
+
+        <div class="goal-overview-card">
+
+            <div class="goal-overview-icon purple">
+                ◆
+            </div>
+
+            <div>
+
+                <span>
+                    Active Goals
+                </span>
+
+                <strong id="goalsActiveCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="goal-overview-card">
+
+            <div class="goal-overview-icon blue">
+                ◈
+            </div>
+
+            <div>
+
+                <span>
+                    Completed
+                </span>
+
+                <strong id="goalsCompletedCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="goal-overview-card">
+
+            <div class="goal-overview-icon orange">
+                ◒
+            </div>
+
+            <div>
+
+                <span>
+                    Average Progress
+                </span>
+
+                <strong id="goalsAverageProgress">
+                    0%
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- GOALS LIST -->
+
+    <div class="goals-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <h3>
+                    Your Goals
+                </h3>
+
+                <p>
+                    Track progress across your personal goals.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="goals-list"
+            id="goalsList"
+        >
+
+            <!-- Goals will appear here -->
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     FINANCE PAGE
+     ========================================== -->
+
+<section
+    class="finance-page page-hidden"
+    id="financePage"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                MONEY MANAGEMENT
+            </p>
+
+            <h2>
+                Finance
+            </h2>
+
+            <p>
+                Track your income, expenses, and financial progress.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="addTransactionBtn"
+            type="button"
+        >
+            <span>＋</span>
+            Add Transaction
+        </button>
+
+    </div>
+
+
+    <!-- Finance Overview -->
+
+    <div class="finance-overview">
+
+        <div class="finance-overview-card">
+
+            <div class="finance-overview-icon purple">
+                ◈
+            </div>
+
+            <div>
+
+                <span>
+                    Total Balance
+                </span>
+
+                <strong id="financeBalance">
+                    Rs 0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="finance-overview-card">
+
+            <div class="finance-overview-icon green">
+                +
+            </div>
+
+            <div>
+
+                <span>
+                    Income
+                </span>
+
+                <strong id="financeIncome">
+                    Rs 0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="finance-overview-card">
+
+            <div class="finance-overview-icon orange">
+                -
+            </div>
+
+            <div>
+
+                <span>
+                    Expenses
+                </span>
+
+                <strong id="financeExpenses">
+                    Rs 0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="finance-overview-card">
+
+            <div class="finance-overview-icon blue">
+                ◒
+            </div>
+
+            <div>
+
+                <span>
+                    Savings
+                </span>
+
+                <strong id="financeSavings">
+                    Rs 0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Recent Transactions -->
+
+    <div class="finance-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <h3>
+                    Recent Transactions
+                </h3>
+
+                <p>
+                    Keep track of your latest financial activity.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="finance-transactions"
+            id="financeTransactions"
+        >
+
+            <div class="finance-empty-state">
+
+                <div class="finance-empty-icon">
+                    ◈
+                </div>
+
+                <h4>
+                    No transactions yet
+                </h4>
+
+                <p>
+                    Add your first income or expense to start tracking your finances.
+                </p>
+
+                <button
+                    class="primary-button"
+                    id="financeEmptyAddBtn"
+                    type="button"
+                >
+                    <span>＋</span>
+                    Add Transaction
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     AI COMMAND CENTER
+     ========================================== -->
+
+<section
+    id="aiPage"
+    class="page-hidden"
+>
+
+    <!-- ==========================================
+         PAGE HEADER
+    ========================================== -->
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="page-eyebrow">
+                INTELLIGENCE
+            </span>
+
+            <h1>
+                AI Command Center
+            </h1>
+
+            <p>
+                Control your personal workspace
+                using natural language.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         AI MAIN WORKSPACE
+    ========================================== -->
+
+    <div class="ai-command-center">
+
+
+        <!-- ==========================================
+             AI INTRO
+        ========================================== -->
+
+        <div class="ai-intro">
+
+            <div class="ai-intro-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <h2>
+                    How can I help?
+                </h2>
+
+                <p>
+                    Ask me to manage your tasks,
+                    notes, goals, planner, or finance.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             AI SUGGESTIONS
+        ========================================== -->
+
+        <div class="ai-suggestions">
+
+            <div class="ai-suggestions-header">
+
+                <div>
+
+                    <span class="ai-section-label">
+                        TRY ASKING
+                    </span>
+
+                    <p class="ai-suggestions-hint">
+                        Ask naturally — AI will understand
+                        what you need.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="ai-suggestion-list">
+
+                <button
+                    type="button"
+                    class="ai-suggestion"
+                    data-command="Help me plan my day"
+                >
+
+                    <span class="ai-suggestion-icon">
+                        ✦
+                    </span>
+
+                    <span class="ai-suggestion-text">
+                        Help me plan my day
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="ai-suggestion"
+                    data-command="I need to finish my portfolio"
+                >
+
+                    <span class="ai-suggestion-icon">
+                        ✓
+                    </span>
+
+                    <span class="ai-suggestion-text">
+                        I need to finish my portfolio
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="ai-suggestion"
+                    data-command="Show me my goals"
+                >
+
+                    <span class="ai-suggestion-icon">
+                        ◆
+                    </span>
+
+                    <span class="ai-suggestion-text">
+                        Show me my goals
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="ai-suggestion"
+                    data-command="Schedule a meeting tomorrow afternoon"
+                >
+
+                    <span class="ai-suggestion-icon">
+                        ▣
+                    </span>
+
+                    <span class="ai-suggestion-text">
+                        Schedule a meeting tomorrow afternoon
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="ai-suggestion"
+                    data-command="How much have I spent this month?"
+                >
+
+                    <span class="ai-suggestion-icon">
+                        ◈
+                    </span>
+
+                    <span class="ai-suggestion-text">
+                        How much have I spent this month?
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             AI CHAT
+        ========================================== -->
+
+        <div class="ai-response-section">
+
+            <!-- CHAT HEADER -->
+
+            <div class="ai-response-header">
+
+                <div>
+
+                    <span class="ai-section-label">
+                        CONVERSATION
+                    </span>
+
+                    <h3>
+                        AI Assistant
+                    </h3>
+
+                </div>
+
+
+                <div class="ai-chat-header-actions">
+
+                    <span
+                        id="aiStatus"
+                        class="ai-status"
+                    >
+                        Ready
+                    </span>
+
+
+                    <button
+                        type="button"
+                        id="aiHistoryToggle"
+                        class="ai-history-toggle"
+                    >
+                        <span class="ai-history-toggle-icon">
+                            ◷
+                        </span>
+
+                        <span>
+                            History
+                        </span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHAT MESSAGES -->
+
+            <div
+                id="aiConversation"
+                class="ai-conversation"
+            >
+
+                <div class="ai-empty-state">
+
+                    <div class="ai-empty-icon">
+                        ✦
+                    </div>
+
+                    <strong>
+                        Ready when you are
+                    </strong>
+
+                    <span>
+                        Your commands and AI responses
+                        will appear here.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                 CHAT COMPOSER
+            ========================================== -->
+
+            <div class="ai-command-box">
+
+                <div class="ai-command-input-wrap">
+
+                    <span class="ai-input-icon">
+                        ✦
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="aiCommandInput"
+                        placeholder="Ask your AI assistant..."
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        type="button"
+                        id="aiSendCommandBtn"
+                        class="primary-button"
+                    >
+                        Send
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==========================================
+            AI HISTORY MODAL
+        ========================================== -->
+
+        <div
+            class="ai-history-modal"
+            id="aiHistoryModal"
+            hidden
+        >
+
+            <div
+                class="ai-history-backdrop"
+                id="aiHistoryBackdrop"
+            ></div>
+
+
+            <div
+                class="ai-history-card"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="aiHistoryTitle"
+            >
+
+                <!-- HEADER -->
+
+                        <div class="ai-history-modal-header">
+
+                            <div>
+
+                                <span class="ai-section-label">
+                                    AI HISTORY
+                                </span>
+
+                                <h3 id="aiHistoryTitle">
+                                    Recent Actions
+                                </h3>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="ai-history-close"
+                                id="aiHistoryClose"
+                                aria-label="Close AI history"
+                            >
+                                ×
+                            </button>
+
+                        </div>
+
+
+                        <!-- HISTORY LIST -->
+
+                        <div
+                            class="ai-action-history-list"
+                            id="aiActionHistoryList"
+                        >
+
+                            <div class="ai-history-empty-state">
+
+                                <div class="ai-empty-icon">
+                                    ◷
+                                </div>
+
+                                <strong>
+                                    No AI actions yet
+                                </strong>
+
+                                <span>
+                                    Actions performed by AI
+                                    will appear here.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            <!-- ==========================================
+                AI CONFIRMATION MODAL
+            ========================================== -->
+
+            <div
+                id="aiConfirmationCard"
+                class="ai-confirmation-card"
+                hidden
+            >
+
+                <div class="ai-confirmation-panel">
+
+                    <div class="ai-confirmation-header">
+
+                        <div>
+
+                            <span class="ai-section-label">
+                                CONFIRM ACTION
+                            </span>
+
+                            <h3 id="aiConfirmationTitle">
+                                Create Task?
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="aiConfirmationClose"
+                            class="ai-confirmation-close"
+                            aria-label="Close confirmation"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <div class="ai-confirmation-content">
+
+                        <div class="ai-confirmation-icon">
+                            ✓
+                        </div>
+
+
+                        <div class="ai-confirmation-details">
+
+                            <strong id="aiConfirmationMain">
+                                Finish portfolio
+                            </strong>
+
+                            <span id="aiConfirmationMeta">
+                                Task · Medium priority
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="ai-confirmation-actions">
+
+                        <button
+                            type="button"
+                            id="aiConfirmationCancel"
+                            class="secondary-button"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="aiConfirmationConfirm"
+                            class="primary-button"
+                        >
+                            Confirm
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+<!-- ==========================================
+     ADD GOAL MODAL
+     ========================================== -->
+
+<div
+    class="goal-modal"
+    id="goalModal"
+>
+
+    <div
+        class="goal-modal-overlay"
+        id="goalModalOverlay"
+    ></div>
+
+
+    <div
+        class="goal-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="goalModalTitle"
+    >
+
+        <div class="goal-modal-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    GOAL TRACKER
+                </p>
+
+                <h3 id="goalModalTitle">
+                    Create New Goal
+                </h3>
+
+            </div>
+
+
+            <button
+                class="goal-modal-close"
+                id="goalModalCloseBtn"
+                type="button"
+                aria-label="Close goal modal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            id="goalForm"
+            class="goal-form"
+        >
+
+            <div class="goal-form-group">
+
+                <label for="goalTitle">
+                    Goal title
+                </label>
+
+                <input
+                    type="text"
+                    id="goalTitle"
+                    placeholder="e.g. Learn JavaScript"
+                    maxlength="80"
+                    required
+                >
+
+            </div>
+
+
+            <div class="goal-form-row">
+
+                <div class="goal-form-group">
+
+                    <label for="goalCategory">
+                        Category
+                    </label>
+
+                    <select id="goalCategory">
+
+                        <option value="Personal">
+                            Personal
+                        </option>
+
+                        <option value="Learning">
+                            Learning
+                        </option>
+
+                        <option value="Career">
+                            Career
+                        </option>
+
+                        <option value="Health">
+                            Health
+                        </option>
+
+                        <option value="Finance">
+                            Finance
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="goal-form-group">
+
+                    <label for="goalProgress">
+                        Starting progress
+                    </label>
+
+                    <select id="goalProgress">
+
+                        <option value="0">
+                            0%
+                        </option>
+
+                        <option value="10">
+                            10%
+                        </option>
+
+                        <option value="25">
+                            25%
+                        </option>
+
+                        <option value="50">
+                            50%
+                        </option>
+
+                        <option value="75">
+                            75%
+                        </option>
+
+                        <option value="100">
+                            100%
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="goal-form-group">
+
+                <label for="goalTarget">
+                    Target
+                </label>
+
+                <input
+                    type="number"
+                    id="goalTarget"
+                    placeholder="e.g. 500000"
+                    min="0"
+                    step="any"
+                >
+
+            </div>
+
+
+            <div class="goal-form-group">
+
+                <label for="goalDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="goalDescription"
+                    rows="4"
+                    maxlength="300"
+                    placeholder="What do you want to achieve?"
+                ></textarea>
+
+            </div>
+
+
+            <div class="goal-form-actions">
+
+                <button
+                    type="button"
+                    class="goal-cancel-button"
+                    id="goalCancelBtn"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-button goal-save-button"
+                >
+                    Create Goal
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     AI GOAL CONFIRMATION MODAL
+     ========================================== -->
+
+<div
+    class="goal-modal"
+    id="aiGoalConfirmModal"
+>
+
+    <div
+        class="goal-modal-overlay"
+        id="aiGoalConfirmOverlay"
+    ></div>
+
+
+    <div
+        class="goal-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="aiGoalConfirmTitle"
+    >
+
+        <div class="goal-modal-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    AI GOAL CREATION
+                </p>
+
+                <h3 id="aiGoalConfirmTitle">
+                    Create this goal?
+                </h3>
+
+            </div>
+
+
+            <button
+                class="goal-modal-close"
+                id="aiGoalConfirmCloseBtn"
+                type="button"
+                aria-label="Close confirmation"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="goal-form">
+
+            <div class="goal-form-group">
+
+                <label>
+                    Goal title
+                </label>
+
+                <input
+                    type="text"
+                    id="aiGoalConfirmName"
+                    readonly
+                >
+
+            </div>
+
+
+            <div class="goal-form-group">
+
+            <label for="aiGoalConfirmCategory">
+                Category
+            </label>
+
+            <select
+                id="aiGoalConfirmCategory"
+            >
+
+                <option value="Personal">
+                    Personal
+                </option>
+
+                <option value="Career">
+                    Career
+                </option>
+
+                <option value="Health">
+                    Health
+                </option>
+
+                <option value="Finance">
+                    Finance
+                </option>
+
+                <option value="Education">
+                    Education
+                </option>
+
+            </select>
+
+        </div>
+
+
+            <div class="goal-form-actions">
+
+                <button
+                    type="button"
+                    class="goal-cancel-button"
+                    id="aiGoalConfirmCancelBtn"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="button"
+                    class="primary-button goal-save-button"
+                    id="aiGoalConfirmCreateBtn"
+                >
+                    Confirm & Create
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     GOAL DELETE CONFIRMATION MODAL
+     ========================================== -->
+
+<div
+    class="goal-delete-modal"
+    id="goalDeleteModal"
+>
+
+    <div
+        class="goal-delete-overlay"
+        id="goalDeleteOverlay"
+    ></div>
+
+    <div
+        class="goal-delete-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="goalDeleteTitle"
+    >
+
+        <div class="goal-delete-icon">
+            !
+        </div>
+
+        <div class="goal-delete-content">
+
+            <p class="eyebrow">
+                DELETE GOAL
+            </p>
+
+            <h3 id="goalDeleteTitle">
+                Delete this goal?
+            </h3>
+
+            <p>
+                Are you sure you want to delete
+                <strong id="goalDeleteName">
+                    this goal
+                </strong>?
+                This action cannot be undone.
+            </p>
+
+        </div>
+
+        <div class="goal-delete-actions">
+
+            <button
+                type="button"
+                class="goal-delete-cancel"
+                id="goalDeleteCancelBtn"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="goal-delete-confirm"
+                id="goalDeleteConfirmBtn"
+            >
+                Delete Goal
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+            <!-- ==========================================
+            NOTES PAGE
+            ========================================== -->
+
+        <section
+            class="notes-page page-hidden"
+            id="notesPage"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        YOUR THOUGHTS
+                    </p>
+
+                    <h2>
+                        Notes
+                    </h2>
+
+                    <p>
+                        Capture ideas before they disappear.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    id="addNoteBtn"
+                >
+                    <span>＋</span>
+                    New Note
+                </button>
+
+            </div>
+
+
+            <div
+                class="notes-grid"
+                id="notesGrid"
+            >
+
+                <!-- Notes will appear here -->
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                NOTE DETAIL MODAL
+                ========================================== -->
+
+            <div
+                class="note-detail-modal"
+                id="noteDetailModal"
+            >
+
+                <div
+                    class="note-detail-overlay"
+                    id="noteDetailOverlay"
+                ></div>
+
+                <div
+                    class="note-detail-card"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="noteDetailTitle"
+                >
+
+                    <div class="note-detail-header">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                NOTE DETAILS
+                            </p>
+
+                            <h3 id="noteDetailTitle">
+                                Note
+                            </h3>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="note-detail-close"
+                            id="noteDetailCloseBtn"
+                            aria-label="Close note details"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <div class="note-detail-body">
+
+                        <div class="note-detail-meta">
+
+                            <span id="noteDetailCreated">
+                                Created
+                            </span>
+
+                            <span id="noteDetailReminder">
+                                No reminder
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="note-detail-content"
+                            id="noteDetailContent"
+                        >
+                        </div>
+
+                    </div>
+
+
+                    <div class="note-detail-actions">
+
+                        <button
+                            type="button"
+                            class="note-detail-edit"
+                            id="noteDetailEditBtn"
+                        >
+                            Edit Note
+                        </button>
+
+                        <button
+                            type="button"
+                            class="note-detail-delete"
+                            id="noteDetailDeleteBtn"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ==========================================
+                NOTE DELETE CONFIRMATION MODAL
+                ========================================== -->
+
+            <div
+                class="note-delete-modal"
+                id="noteDeleteModal"
+            >
+
+                <div
+                    class="note-delete-overlay"
+                    id="noteDeleteOverlay"
+                ></div>
+
+                <div
+                    class="note-delete-card"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="noteDeleteTitle"
+                >
+
+                    <div class="note-delete-icon">
+                        !
+                    </div>
+
+                    <div class="note-delete-content">
+
+                        <p class="eyebrow">
+                            DELETE NOTE
+                        </p>
+
+                        <h3 id="noteDeleteTitle">
+                            Delete this note?
+                        </h3>
+
+                        <p>
+                            Are you sure you want to delete
+                            <strong id="noteDeleteName">
+                                this note
+                            </strong>?
+                            This action cannot be undone.
+                        </p>
+
+                    </div>
+
+                    <div class="note-delete-actions">
+
+                        <button
+                            type="button"
+                            class="note-delete-cancel"
+                            id="noteDeleteCancelBtn"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            type="button"
+                            class="note-delete-confirm"
+                            id="noteDeleteConfirmBtn"
+                        >
+                            Delete Note
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ==========================================
+                NOTE EDIT MODAL
+                ========================================== -->
+
+            <div
+                class="note-edit-modal"
+                id="noteEditModal"
+            >
+
+                <div
+                    class="note-edit-overlay"
+                    id="noteEditOverlay"
+                ></div>
+
+                <div
+                    class="note-edit-card"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="noteEditTitle"
+                >
+
+                    <div class="note-edit-header">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                NOTE EDITOR
+                            </p>
+
+                            <h3 id="noteEditTitle">
+                                Edit Note
+                            </h3>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="note-edit-close"
+                            id="noteEditCloseBtn"
+                            aria-label="Close note editor"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <form
+                        class="note-edit-form"
+                        id="noteEditForm"
+                    >
+
+                        <div class="note-edit-field">
+
+                            <label for="noteEditTitleInput">
+                                Note Title
+                            </label>
+
+                            <input
+                                type="text"
+                                id="noteEditTitleInput"
+                                placeholder="Enter note title"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+
+                        <div class="note-edit-field">
+
+                            <label for="noteEditContentInput">
+                                Note Content
+                            </label>
+
+                            <textarea
+                                id="noteEditContentInput"
+                                rows="8"
+                                placeholder="Write your note..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="note-edit-actions">
+
+                            <button
+                                type="button"
+                                class="note-edit-cancel"
+                                id="noteEditCancelBtn"
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="note-edit-save"
+                                id="noteEditSaveBtn"
+                            >
+                                Save Changes
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+        <!-- ==========================================
+            PLANNER PAGE
+            ========================================== -->
+
+        <section
+            class="planner-page page-hidden"
+            id="plannerPage"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        YOUR SCHEDULE
+                    </p>
+
+                    <h2>
+                        Planner
+                    </h2>
+
+                    <p>
+                        Organize your day and stay ahead.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    id="addPlannerEventBtn"
+                    type="button"
+                >
+
+                    <span>＋</span>
+
+                    Add Event
+
+                </button>
+
+            </div>
+
+
+    <!-- ==========================================
+         PLANNER TOOLBAR
+         ========================================== -->
+
+        <div class="planner-toolbar">
+
+            <button
+                class="planner-nav-button"
+                id="plannerPreviousBtn"
+                type="button"
+                aria-label="Previous day"
+            >
+                ←
+            </button>
+
+
+            <button
+                class="planner-today-button"
+                id="plannerTodayBtn"
+                type="button"
+            >
+                Today
+            </button>
+
+
+            <button
+                class="planner-nav-button"
+                id="plannerNextBtn"
+                type="button"
+                aria-label="Next day"
+            >
+                →
+            </button>
+
+
+            <div
+                class="planner-current-date"
+                id="plannerCurrentDate"
+            >
+                Today
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+            PLANNER DAY SUMMARY
+            ========================================== -->
+
+        <div
+            class="planner-day-summary"
+            id="plannerDaySummary"
+        >
+
+            <div class="planner-summary-item">
+
+                <span class="planner-summary-label">
+                    Total
+                </span>
+
+                <strong id="plannerTotalEvents">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="planner-summary-item">
+
+                <span class="planner-summary-label">
+                    Completed
+                </span>
+
+                <strong id="plannerCompletedEvents">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="planner-summary-item">
+
+                <span class="planner-summary-label">
+                    Remaining
+                </span>
+
+                <strong id="plannerRemainingEvents">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+    <!-- ==========================================
+            PLANNER TIMELINE
+            ========================================== -->
+
+        <div
+            class="planner-schedule"
+            id="plannerSchedule"
+        >
+
+            <div class="planner-timeline">
+
+                <div class="planner-time-column">
+
+                    <div class="planner-time-slot">
+                        08:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        09:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        10:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        11:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        12:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        13:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        14:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        15:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        16:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        17:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        18:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        19:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        20:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        21:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        22:00
+                    </div>
+
+                    <div class="planner-time-slot">
+                        23:00
+                    </div>
+
+                </div>
+
+
+                    <div class="planner-timeline-content">
+
+                        <div class="planner-timeline-grid">
+
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+                            <div class="planner-grid-line"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+<!-- ==========================================
+                DELETE CONFIRMATION MODAL
+                ========================================== -->
+
+            <div
+                class="planner-delete-modal"
+                id="plannerDeleteModal"
+            >
+
+                <div
+                    class="planner-delete-overlay"
+                    id="plannerDeleteOverlay"
+                ></div>
+
+
+                <div
+                    class="planner-delete-card"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="plannerDeleteTitle"
+                >
+
+                    <div class="planner-delete-icon">
+                        !
+                    </div>
+
+
+                    <div class="planner-delete-content">
+
+                        <h3 id="plannerDeleteTitle">
+                            Delete Event?
+                        </h3>
+
+                        <p>
+                            This event will be permanently removed
+                            from your planner.
+                        </p>
+
+                    </div>
+
+
+                    <div class="planner-delete-actions">
+
+                        <button
+                            class="planner-delete-cancel"
+                            id="plannerDeleteCancelBtn"
+                            type="button"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            class="planner-delete-confirm"
+                            id="plannerDeleteConfirmBtn"
+                            type="button"
+                        >
+                            Delete Event
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            </section>
+
+
+<!-- ==========================================
+            PLANNER EVENT MODAL
+            ========================================== -->
+
+        <div
+            class="planner-modal"
+            id="plannerEventModal"
+        >
+
+            <div class="planner-modal-overlay"></div>
+
+
+            <div
+                class="planner-modal-content"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="plannerModalTitle"
+            >
+
+                <div class="planner-modal-header">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            PLANNER
+                        </p>
+
+                        <h3 id="plannerModalTitle">
+                            Add Event
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        class="planner-modal-close"
+                        id="closePlannerModalBtn"
+                        type="button"
+                        aria-label="Close"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <form
+                    class="planner-event-form"
+                    id="plannerEventForm"
+                >
+
+                    <div class="planner-form-group">
+
+                        <label for="plannerEventTitle">
+                            Event Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="plannerEventTitle"
+                            placeholder="e.g. Team Meeting"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="planner-form-group">
+
+                        <label for="plannerEventDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="plannerEventDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="planner-form-row">
+
+                        <div class="planner-form-group">
+
+                            <label for="plannerEventStartTime">
+                                Start Time
+                            </label>
+
+                            <input
+                                type="time"
+                                id="plannerEventStartTime"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="planner-form-group">
+
+                            <label for="plannerEventEndTime">
+                                End Time
+                            </label>
+
+                            <input
+                                type="time"
+                                id="plannerEventEndTime"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="planner-form-group">
+
+                        <label for="plannerEventDescription">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="plannerEventDescription"
+                            rows="4"
+                            placeholder="Add some details..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="planner-modal-actions">
+
+                        <button
+                            type="button"
+                            class="planner-cancel-button"
+                            id="cancelPlannerModalBtn"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="primary-button"
+                        >
+                            Save Event
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+<!-- ==========================================
+            PLANNER EVENT DETAILS MODAL
+            ========================================== -->
+
+        <div
+            class="planner-details-modal"
+            id="plannerDetailsModal"
+        >
+
+            <div
+                class="planner-details-overlay"
+                id="plannerDetailsOverlay"
+            ></div>
+
+
+            <div
+                class="planner-details-card"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="plannerDetailsTitle"
+            >
+
+                <!-- ==========================================
+                    DETAILS HEADER
+                    ========================================== -->
+
+                <div class="planner-details-header">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            PLANNER EVENT
+                        </p>
+
+                        <h3 id="plannerDetailsTitle">
+                            Event Details
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        class="planner-details-close"
+                        id="plannerDetailsCloseBtn"
+                        type="button"
+                        aria-label="Close event details"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+        <!-- ==========================================
+             EVENT INFO
+             ========================================== -->
+
+        <div class="planner-details-content">
+
+            <div class="planner-details-row">
+
+                <span>
+                    Date
+                </span>
+
+                <strong id="plannerDetailsDate">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="planner-details-row">
+
+                <span>
+                    Time
+                </span>
+
+                <strong id="plannerDetailsTime">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="planner-details-description">
+
+                <span>
+                    Description
+                </span>
+
+                <p id="plannerDetailsDescription">
+                    No description added.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+                    QUICK ACTIONS
+                    ========================================== -->
+
+                <div class="planner-details-actions">
+
+                    <button
+                        class="planner-action-button"
+                        id="plannerDetailsCompleteBtn"
+                        type="button"
+                    >
+                        Complete
+                    </button>
+
+
+                    <button
+                        class="planner-action-button"
+                        id="plannerDetailsEditBtn"
+                        type="button"
+                    >
+                        Edit
+                    </button>
+
+
+                    <button
+                        class="planner-action-button danger"
+                        id="plannerDetailsDeleteBtn"
+                        type="button"
+                    >
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+           
+
+
+
+        <!-- ==========================================
+            ANALYTICS PAGE
+            ========================================== -->
+
+        <section
+            class="analytics-page page-hidden"
+            id="analyticsPage"
+        >
+
+
+            <div class="page-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        PERFORMANCE
+                    </p>
+
+                    <h2>
+                        Analytics
+                    </h2>
+
+                    <p>
+                        Understand your productivity at a glance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+    <!-- ==========================================
+         ANALYTICS STATS
+         ========================================== -->
+
+    <div class="analytics-stats">
+
+
+        <!-- TOTAL TASKS -->
+
+        <div class="analytics-stat-card">
+
+            <span class="analytics-stat-label">
+                Total Tasks
+            </span>
+
+            <strong id="analyticsTotalTasks">
+                0
+            </strong>
+
+        </div>
+
+
+        <!-- COMPLETED -->
+
+        <div class="analytics-stat-card">
+
+            <span class="analytics-stat-label">
+                Completed
+            </span>
+
+            <strong id="analyticsCompletedTasks">
+                0
+            </strong>
+
+        </div>
+
+
+        <!-- PENDING -->
+
+        <div class="analytics-stat-card">
+
+            <span class="analytics-stat-label">
+                Pending
+            </span>
+
+            <strong id="analyticsPendingTasks">
+                0
+            </strong>
+
+        </div>
+
+
+        <!-- COMPLETION RATE -->
+
+        <div class="analytics-stat-card">
+
+            <span class="analytics-stat-label">
+                Completion Rate
+            </span>
+
+            <strong id="analyticsCompletionRate">
+                0%
+            </strong>
+
+        </div>
+
+
+        <!-- TOTAL NOTES -->
+
+        <div class="analytics-stat-card">
+
+            <span class="analytics-stat-label">
+                Total Notes
+            </span>
+
+            <strong id="analyticsTotalNotes">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+        <!-- ==========================================
+         COMPLETION OVERVIEW
+         ========================================== -->
+
+    <div class="analytics-card completion-overview-card">
+
+        <div class="analytics-card-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    PRODUCTIVITY
+                </p>
+
+                <h3>
+                    Completion Overview
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="completion-overview">
+
+            <div class="completion-ring">
+
+                <div class="completion-ring-inner">
+
+                    <strong id="analyticsCompletionPercent">
+                        0%
+                    </strong>
+
+                    <span>
+                        completed
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="completion-details">
+
+                <div class="completion-detail">
+
+                    <span class="completion-dot completed-dot"></span>
+
+                    <div>
+                        <strong id="analyticsCompletedOverview">
+                            0
+                        </strong>
+
+                        <span>
+                            Completed tasks
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="completion-detail">
+
+                    <span class="completion-dot pending-dot"></span>
+
+                    <div>
+                        <strong id="analyticsPendingOverview">
+                            0
+                        </strong>
+
+                        <span>
+                            Pending tasks
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<!-- ==========================================
+     PRODUCTIVITY TREND
+     ========================================== -->
+
+<div class="analytics-card productivity-trend-card">
+
+    <div class="analytics-card-header">
+
+        <div>
+
+            <p class="eyebrow">
+                ACTIVITY
+            </p>
+
+            <h3>
+                Productivity Trend
+            </h3>
+
+        </div>
+
+        <span class="analytics-period">
+            Last 7 Days
+        </span>
+
+    </div>
+
+
+    <div class="productivity-chart">
+
+        <div class="chart-y-axis">
+
+            <span>3</span>
+            <span>2</span>
+            <span>1</span>
+            <span>0</span>
+
+        </div>
+
+
+        <div
+            class="chart-area"
+            id="productivityChart"
+        >
+
+            <div class="chart-grid">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <div
+                class="chart-bars"
+                id="productivityBars"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="chart-labels"
+        id="productivityLabels"
+    ></div>
+
+</div>
+
+    <!-- ==========================================
+         PRIORITY BREAKDOWN
+         ========================================== -->
+
+    <div class="analytics-card">
+
+        <div class="analytics-card-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    TASK BREAKDOWN
+                </p>
+
+                <h3>
+                    Task Priority
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="priority-breakdown">
+
+
+            <!-- HIGH -->
+
+            <div class="priority-row">
+
+                <div class="priority-row-info">
+
+                    <span>
+                        High
+                    </span>
+
+                    <strong id="analyticsHighPriority">
+                        0
+                    </strong>
+
+                </div>
+
+                <div class="priority-bar">
+
+                    <span
+                        id="analyticsHighBar"
+                    ></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- MEDIUM -->
+
+            <div class="priority-row">
+
+                <div class="priority-row-info">
+
+                    <span>
+                        Medium
+                    </span>
+
+                    <strong id="analyticsMediumPriority">
+                        0
+                    </strong>
+
+                </div>
+
+                <div class="priority-bar">
+
+                    <span
+                        id="analyticsMediumBar"
+                    ></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOW -->
+
+            <div class="priority-row">
+
+                <div class="priority-row-info">
+
+                    <span>
+                        Low
+                    </span>
+
+                    <strong id="analyticsLowPriority">
+                        0
+                    </strong>
+
+                </div>
+
+                <div class="priority-bar">
+
+                    <span
+                        id="analyticsLowBar"
+                    ></span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+         QUICK ADD MODAL
+    ========================== -->
+    <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+            <button class="modal-close" id="modalClose">
+                ×
+            </button>
+
+            <div class="modal-icon">
+                ⚡
+            </div>
+
+            <h2>Quick Add</h2>
+
+            <p>
+                What would you like to create?
+            </p>
+
+            <div class="quick-options">
+
+                <button class="quick-option">
+                    <span>✓</span>
+                    <div>
+                        <strong>New Task</strong>
+                        <small>Create a task</small>
+                    </div>
+                </button>
+
+                <button class="quick-option">
+                    <span>▤</span>
+                    <div>
+                        <strong>New Note</strong>
+                        <small>Write something down</small>
+                    </div>
+                </button>
+
+                <button class="quick-option">
+                    <span>$</span>
+                    <div>
+                        <strong>Expense</strong>
+                        <small>Track your spending</small>
+                    </div>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+     ADD TASK MODAL
+     ========================================== -->
+
+<div
+    class="task-create-modal"
+    id="taskCreateModal"
+>
+
+    <div
+        class="task-create-overlay"
+        id="taskCreateOverlay"
+    ></div>
+
+
+    <div
+        class="task-create-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="taskCreateTitle"
+    >
+
+        <div class="task-create-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    TASK MANAGER
+                </p>
+
+                <h3 id="taskCreateTitle">
+                    Create New Task
+                </h3>
+
+                <p>
+                    Add a task and keep your day organized.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="task-create-close"
+                id="taskCreateCloseBtn"
+                aria-label="Close task modal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            class="task-create-form"
+            id="taskCreateForm"
+        >
+
+            <div class="task-create-field">
+
+                <label for="taskCreateTitleInput">
+                    Task Title
+                </label>
+
+                <input
+                    type="text"
+                    id="taskCreateTitleInput"
+                    placeholder="e.g. Finish portfolio project"
+                    autocomplete="off"
+                    required
+                >
+
+            </div>
+
+
+            <div class="task-create-grid">
+
+                <div class="task-create-field">
+
+                    <label for="taskCreatePriority">
+                        Priority
+                    </label>
+
+                    <select
+                        id="taskCreatePriority"
+                    >
+
+                        <option value="medium">
+                            Medium
+                        </option>
+
+                        <option value="high">
+                            High
+                        </option>
+
+                        <option value="low">
+                            Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="task-create-field">
+
+                    <label for="taskCreateDate">
+                        Reminder Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="taskCreateDate"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="task-create-field">
+
+                <label for="taskCreateTime">
+                    Reminder Time
+                </label>
+
+                <input
+                    type="time"
+                    id="taskCreateTime"
+                >
+
+                <span class="task-create-helper">
+                    Leave date and time empty if you do not need a reminder.
+                </span>
+
+            </div>
+
+
+            <div class="task-create-actions">
+
+                <button
+                    type="button"
+                    class="task-create-cancel"
+                    id="taskCreateCancelBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="task-create-save"
+                    id="taskCreateSaveBtn"
+                >
+                    Create Task
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     ADD NOTE MODAL
+     ========================================== -->
+
+<div
+    class="note-create-modal"
+    id="noteCreateModal"
+>
+
+    <div
+        class="note-create-overlay"
+        id="noteCreateOverlay"
+    ></div>
+
+    <div
+        class="note-create-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="noteCreateTitle"
+    >
+
+        <div class="note-create-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    NOTES
+                </p>
+
+                <h3 id="noteCreateTitle">
+                    Create New Note
+                </h3>
+
+                <p>
+                    Capture an idea, thought, or important detail.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="note-create-close"
+                id="noteCreateCloseBtn"
+                aria-label="Close note modal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            class="note-create-form"
+            id="noteCreateForm"
+        >
+
+            <div class="note-create-field">
+
+                <label for="noteCreateTitleInput">
+                    Note Title
+                </label>
+
+                <input
+                    type="text"
+                    id="noteCreateTitleInput"
+                    placeholder="e.g. Portfolio ideas"
+                    autocomplete="off"
+                    required
+                >
+
+            </div>
+
+
+            <div class="note-create-field">
+
+                <label for="noteCreateContent">
+                    Note Content
+                </label>
+
+                <textarea
+                    id="noteCreateContent"
+                    placeholder="Write your note..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="note-create-field">
+
+                <label for="noteCreateDate">
+                    Reminder Date
+                </label>
+
+                <input
+                    type="date"
+                    id="noteCreateDate"
+                >
+
+            </div>
+
+
+            <div class="note-create-field">
+
+                <label for="noteCreateTime">
+                    Reminder Time
+                </label>
+
+                <input
+                    type="time"
+                    id="noteCreateTime"
+                >
+
+                <span class="note-create-helper">
+                    Leave date and time empty if you do not need a reminder.
+                </span>
+
+            </div>
+
+
+            <div class="note-create-actions">
+
+                <button
+                    type="button"
+                    class="note-create-cancel"
+                    id="noteCreateCancelBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="note-create-save"
+                    id="noteCreateSaveBtn"
+                >
+                    Create Note
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     ADD TRANSACTION MODAL
+     ========================================== -->
+
+<div
+    class="finance-modal"
+    id="financeModal"
+>
+
+    <div
+        class="finance-modal-overlay"
+        id="financeModalOverlay"
+    ></div>
+
+
+    <div
+        class="finance-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="financeModalTitle"
+    >
+
+        <div class="finance-modal-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    FINANCE
+                </p>
+
+                <h3 id="financeModalTitle">
+                    Add Transaction
+                </h3>
+
+                <p>
+                    Record your income or expense.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="finance-modal-close"
+                id="financeModalCloseBtn"
+                aria-label="Close transaction modal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            class="finance-form"
+            id="financeForm"
+        >
+
+            <div class="finance-form-group">
+
+                <label for="financeType">
+                    Transaction Type
+                </label>
+
+                <select
+                    id="financeType"
+                    required
+                >
+
+                    <option value="expense">
+                        Expense
+                    </option>
+
+                    <option value="income">
+                        Income
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="finance-form-group">
+
+                <label for="financeAmount">
+                    Amount
+                </label>
+
+                <input
+                    type="number"
+                    id="financeAmount"
+                    placeholder="e.g. 2500"
+                    min="0"
+                    step="0.01"
+                    required
+                >
+
+            </div>
+
+
+            <div class="finance-form-row">
+
+                <div class="finance-form-group">
+
+                    <label for="financeCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="financeCategory"
+                        required
+                    >
+
+                        <option value="Food">
+                            Food
+                        </option>
+
+                        <option value="Transport">
+                            Transport
+                        </option>
+
+                        <option value="Bills">
+                            Bills
+                        </option>
+
+                        <option value="Shopping">
+                            Shopping
+                        </option>
+
+                        <option value="Salary">
+                            Salary
+                        </option>
+
+                        <option value="Freelance">
+                            Freelance
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="finance-form-group">
+
+                    <label for="financeDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="financeDate"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="finance-form-group">
+
+                <label for="financeDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="financeDescription"
+                    placeholder="e.g. Monthly groceries"
+                    maxlength="150"
+                ></textarea>
+
+            </div>
+
+
+            <div class="finance-form-actions">
+
+                <button
+                    type="button"
+                    class="finance-cancel-button"
+                    id="financeCancelBtn"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="finance-save-button"
+                    id="financeSaveBtn"
+                >
+                    Add Transaction
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     FINANCE DELETE CONFIRMATION MODAL
+     ========================================== -->
+
+<div
+    class="finance-delete-modal"
+    id="financeDeleteModal"
+>
+
+    <div
+        class="finance-delete-modal-overlay"
+        id="financeDeleteModalOverlay"
+    ></div>
+
+    <div
+        class="finance-delete-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="financeDeleteModalTitle"
+    >
+
+        <button
+            type="button"
+            class="finance-delete-close"
+            id="financeDeleteCloseBtn"
+            aria-label="Close delete confirmation"
+        >
+            ×
+        </button>
+
+        <div class="finance-delete-icon">
+            !
+        </div>
+
+        <div class="finance-delete-content">
+
+            <p class="eyebrow">
+                DELETE TRANSACTION
+            </p>
+
+            <h3 id="financeDeleteModalTitle">
+                Delete this transaction?
+            </h3>
+
+            <p id="financeDeleteModalMessage">
+                This transaction will be permanently removed from your finance records.
+            </p>
+
+        </div>
+
+        <div class="finance-delete-actions">
+
+            <button
+                type="button"
+                class="finance-delete-cancel-button"
+                id="financeDeleteCancelBtn"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="finance-delete-confirm-button"
+                id="financeDeleteConfirmBtn"
+            >
+                Delete Transaction
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    
+    <!-- REMINDER MODAL -->
+
+<div class="reminder-modal-overlay" id="reminderModal">
+
+    <div class="reminder-modal">
+
+        <div class="reminder-modal-header">
+
+            <div>
+                <p class="eyebrow">TASK REMINDER</p>
+                <h3 id="reminderModalTitle">
+                    Set Reminder
+                </h3>
+            </div>
+
+            <!-- ---------- CLOSE REMINDER BUTTON ---------- -->
+
+        <button
+            class="modal-close"
+            id="reminderModalClose"
+            type="button"
+            aria-label="Close reminder"
+            onclick="closeReminderModal()"
+        >
+            ×
+        </button>
+
+        </div>
+
+
+        <div class="reminder-form">
+
+            <div class="form-group">
+
+                <label for="reminderDate">
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="reminderDate"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="reminderTime">
+                    Time
+                </label>
+
+                <input
+                    type="time"
+                    id="reminderTime"
+                >
+
+            </div>
+
+
+            <div class="reminder-preview">
+
+                <span class="reminder-preview-icon">
+                    🔔
+                </span>
+
+                <div>
+                    <strong>Reminder</strong>
+                    <p id="reminderPreviewText">
+                        Choose a date and time
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="reminder-modal-actions">
+
+            <!-- ---------- CANCEL REMINDER BUTTON ---------- -->
+
+            <button
+                class="secondary-button"
+                id="reminderCancel"
+                type="button"
+                onclick="closeReminderModal()"
+            >
+                Cancel
+            </button>
+
+            <!-- ---------- SAVE REMINDER BUTTON ---------- -->
+
+            <button
+                class="primary-button"
+                id="reminderSave"
+                type="button"
+                onclick="saveReminder()"
+            >
+                Set Reminder
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     DELETE TASK CONFIRMATION MODAL
+========================================== -->
+
+<div
+    class="task-delete-modal"
+    id="taskDeleteModal"
+>
+
+    <div class="task-delete-backdrop"></div>
+
+    <div
+        class="task-delete-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="taskDeleteTitle"
+    >
+
+        <div class="task-delete-icon">
+            !
+        </div>
+
+        <div class="task-delete-content">
+
+            <h3 id="taskDeleteTitle">
+                Delete Task?
+            </h3>
+
+            <p id="taskDeleteMessage">
+                Are you sure you want to delete this task?
+            </p>
+
+        </div>
+
+        <div class="task-delete-actions">
+
+            <button
+                type="button"
+                class="task-delete-cancel"
+                id="taskDeleteCancel"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="task-delete-confirm"
+                id="taskDeleteConfirm"
+            >
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     DATA CONFIRMATION MODAL
+========================= -->
+
+<div class="data-confirm-overlay" id="dataConfirmModal">
+
+    <div class="data-confirm-backdrop"></div>
+
+    <div class="data-confirm-card">
+
+        <div class="data-confirm-icon" id="dataConfirmIcon">
+            !
+        </div>
+
+        <div class="data-confirm-content">
+
+            <p class="eyebrow" id="dataConfirmEyebrow">
+                CONFIRM ACTION
+            </p>
+
+            <h3 id="dataConfirmTitle">
+                Are you sure?
+            </h3>
+
+            <p id="dataConfirmMessage">
+                This action cannot be undone.
+            </p>
+
+        </div>
+
+        <div class="data-confirm-actions">
+
+            <button
+                class="data-confirm-cancel"
+                id="dataConfirmCancel"
+                type="button"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="data-confirm-primary"
+                id="dataConfirmProceed"
+                type="button"
+            >
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
