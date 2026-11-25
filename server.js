@@ -43,6 +43,11 @@ app.use(
 );
 
 
+//Home Page Route 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
 // ==========================================
 // HEALTH CHECK
 // ==========================================
