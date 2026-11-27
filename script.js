@@ -17608,7 +17608,7 @@ async function askRealAI(command) {
 
     const response =
         await fetch(
-            "http://localhost:3000/api/ai",
+    "/api/ai",
             {
                 method: "POST",
 
